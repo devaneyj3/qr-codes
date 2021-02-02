@@ -1,20 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import { HashRouter as Router, Route } from 'react-router-dom'
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.scss";
+import { HashRouter as Router, Route } from "react-router-dom";
 
-import Home from "./App"
-import About from "./pages/about"
+import Home from "./container/App";
+import Prices from "./pages/prices";
 
 ReactDOM.render(
-    <Router>
-        <div>
-            <main>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
-            </main>
-        </div>
-    </Router>, 
-    document.getElementById("root")
-    
-)
+  <Router>
+    <div className="container">
+      <main>
+        <Route exact path="/" component={Home} />
+        <Route exact path="/bitcoin" component={Prices} />
+      </main>
+    </div>
+  </Router>,
+  document.getElementById("root")
+);
