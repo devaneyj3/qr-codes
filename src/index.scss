@@ -7,7 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-div {
+.container {
   margin: 5%;
   text-align: center;
+  button {
+    margin: 5%
+  }
 }

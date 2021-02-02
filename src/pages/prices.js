@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import shell from 'electron';
-import { Link } from "react-router-dom";
 import axios from "axios";
-import Navigation from "../components/navigation/navigation";
-import Footer from "../components/footer/footer";
 import QRCode from "react-qr-code";
 import "./prices.scss";
 
@@ -21,9 +17,8 @@ const About = () => {
   }, []);
   return (
     <>
-      <Navigation />
       <h1>Bitcoin Prices</h1>
-    <p>Scan QR code to read price informatio.</p>
+    <p>Scan QR code to read price information.</p>
       <div className="bitcoin-info-container">
         {Object.keys(cryptos).map((key) => {
           let price = cryptos[key].USD.PRICE;
@@ -47,8 +42,7 @@ const About = () => {
           );
         })}
       </div>
-      <Footer />
-    </>
+      </>
   );
 };
 
