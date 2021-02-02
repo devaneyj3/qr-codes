@@ -8,7 +8,6 @@ import Footer from "./components/footer/footer";
 import Home from "./container/App";
 import Prices from "./pages/prices";
 import Tweets from "./components/tweets/tweets";
-import PDFDownload from "./components/pdf/pdf";
 
 const Container = () => {
   const ref = React.createRef();
