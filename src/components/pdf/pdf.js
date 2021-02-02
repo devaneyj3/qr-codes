@@ -7,7 +7,7 @@ const PDFDownload = ({ children }) => {
   return (
     <>
       <ReactToPdf targetRef={ref} filename="info.pdf">
-        {({ toPdf }) => <button onClick={toPdf}>Cature as PDF</button>}
+        {({ toPdf }) => <button onClick={toPdf}>Capture as PDF</button>}
         {children}
       </ReactToPdf>
     </>
