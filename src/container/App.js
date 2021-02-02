@@ -1,8 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import QRcode from "qrcode.react";
 import Navigation from "../components/navigation/navigation";
 import Footer from "../components/footer/footer";
+
 import "./App.scss";
 
 function App() {
