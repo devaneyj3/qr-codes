@@ -6,7 +6,6 @@ function App() {
   return (
     <>
       <div className="App">
-        <p>Scan the QRcode to read your name.</p>
         <QRcode value="Jordan Devaney" />
       </div>
     </>

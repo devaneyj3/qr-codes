@@ -16,9 +16,12 @@ const Container = () => {
       <Router>
         <div className="container" ref={ref}>
           <Navigation />
-          <ReactToPdf targetRef={ref} filename="info.pdf">
-            {({ toPdf }) => <button onClick={toPdf}>Capture as PDF</button>}
-          </ReactToPdf>
+          <section className="header">
+            <p>Scan the QRcode on the page to get cool information.</p>
+            <ReactToPdf targetRef={ref} filename="info.pdf">
+              {({ toPdf }) => <button onClick={toPdf}>Capture as PDF</button>}
+            </ReactToPdf>
+          </section>
           <Route exact path="/" component={Home} />
           <Route exact path="/bitcoin" component={Prices} />
           <Route exact path="/tweets" component={Tweets} />
