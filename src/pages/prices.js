@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 // import shell from 'electron';
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Navigation from "../components/navigation/navigation";
+import Footer from "../components/footer/footer";
 import QRCode from "react-qr-code";
 import "./prices.scss";
 
@@ -19,35 +21,33 @@ const About = () => {
   }, []);
   return (
     <>
-      <Link className="App-link" to="/">
-        Home
-      </Link>
+      <Navigation />
       <h1>Bitcoin Prices</h1>
+    <p>Scan QR code to read price informatio.</p>
       <div className="bitcoin-info-container">
         {Object.keys(cryptos).map((key) => {
           let price = cryptos[key].USD.PRICE;
           let image = cryptos[key].USD.IMAGEURL;
+          const customImg = {
+            src: image
+          }
+          console.log(customImg);
           price = "$" + String(price.toFixed(3));
           return (
-            <section className={key}>
+            <section className={key} key={key}>
               <h2>{key} Price</h2>
               <QRCode
                 value={price}
-                imageSettings={{
-                  'src': image,
-                }}
+                size={70}
+                style={{src: customImg.src}}
+                imageSettings={{src: 'https://static.zpao.com/favicon.png', height: 24, width: 24 }}
               />
               <p>Price: {price}</p>
             </section>
           );
         })}
       </div>
-      <a href="https://www.github.com/devaneyj3" target='_blank' rel="noopener noreferrer">GitHib</a>
-      <a href="https://www.linkedin.com/in/jordandevaney/" target='_blank' rel="noopener noreferrer">Linkedin</a>
-      <a href="mailto:jordandevaney28@gmail.com">Email</a>
-      <a href="https://docs.google.com/document/d/1s6z0l5ZkmVUJUtrztj5EwSZvry8BQm2dFyws4GhKzw0/edit?usp=sharing" target='_blank' rel="noopener noreferrer">
-        Resume
-      </a>
+      <Footer />
     </>
   );
 };

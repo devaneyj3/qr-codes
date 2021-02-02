@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import QRCode from "react-qr-code";
+import QRcode from "qrcode.react";
+import Navigation from "../components/navigation/navigation";
+import Footer from "../components/footer/footer";
 import "./App.scss";
 
 function App() {
   return (
     <>
-      <Link to="/bitcoin">Bitcoin Prices</Link>
+      <Navigation />
       <div className="App">
         <p>Scan the QRcode to read your name.</p>
-        <QRCode value="Jordan Devaney" />
+        <QRcode value="Jordan Devaney" />
       </div>
+      <Footer />
     </>
   );
 }
