@@ -1,4 +1,5 @@
 const electron = require("electron");
+const shell = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const path = require("path");
@@ -16,6 +17,8 @@ function createWindow() {
       ? "http://localhost:3000"
       : `file://${path.join(__dirname, "../build/index.html")}`
   );
+  mainWindow.webContents.openDevTools();
+
   mainWindow.on("closed", () => (mainWindow = null));
 }
 
