@@ -1,20 +1,28 @@
 import React from "react";
 
-import { TwitterTimelineEmbed } from "react-twitter-embed";
+import "./tweets.scss";
 
 const Tweets = () => {
   return (
     <section className="tweets">
-      <TwitterTimelineEmbed
-        sourceType="profile"
-        screenName="ethereum"
-        options={{ height: 400 }}
-      />
-      <TwitterTimelineEmbed
-        sourceType="profile"
-        screenName="BBCAfrica"
-        options={{ height: 400 }}
-      />
+      <a
+        class="twitter-timeline"
+        href="https://twitter.com/ethereum?ref_src=twsrc%5Etfw"
+        data-height="400"
+        data-width="400"
+        data-theme="dark"
+      >
+        Tweets by ethereum
+      </a>
+      <a
+        class="twitter-timeline"
+        href="https://twitter.com/BBCAfrica?ref_src=twsrc%5Etfw"
+        data-height="400"
+        data-width="400"
+        data-theme="dark"
+      >
+        Tweets by BBCAfrica
+      </a>
     </section>
   );
 };
