@@ -8,7 +8,7 @@ const About = () => {
   useEffect(() => {
     const getData = async () => {
       const data = await axios.get(
-        "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=xtz,ada,burst&tsyms=USD&api_key=5820c008c1cf507466fd4396627fd2cf90e80fd810d332b6dedff15aa8251bad"
+        `https://min-api.cryptocompare.com/data/pricemultifull?fsyms=xtz,ada,burst&tsyms=USD&api_key=${process.env.KEY}`
       );
       setCryptos(data.data.RAW);
     };

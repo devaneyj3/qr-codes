@@ -1,3 +1,4 @@
+// const bitcoin = require("../src/static/images/bitcoin.png");
 const electron = require("electron");
 const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
@@ -8,7 +9,6 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 1200,
     height: 800,
-    icon: "",
   });
 
   mainWindow.loadURL(
@@ -16,7 +16,6 @@ function createWindow() {
       ? "http://localhost:3000"
       : `file://${path.join(__dirname, "../build/index.html")}`
   );
-  mainWindow.webContents.openDevTools();
 
   mainWindow.on("closed", () => (mainWindow = null));
 }
