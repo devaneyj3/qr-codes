@@ -1,5 +1,5 @@
 .tweets {
-  iframe {
-    margin: 5%
-  }
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
 }

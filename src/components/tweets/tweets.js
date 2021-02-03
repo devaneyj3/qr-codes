@@ -1,28 +1,22 @@
-import React from "react";
-
+import React, { useState } from "react";
+import { TwitterTimelineEmbed } from "react-twitter-embed";
 import "./tweets.scss";
 
 const Tweets = () => {
+  const [profiles, setProfiles] = useState(["BBCAfrica", "Ethereum"]);
   return (
     <section className="tweets">
-      <a
-        class="twitter-timeline"
-        href="https://twitter.com/ethereum?ref_src=twsrc%5Etfw"
-        data-height="400"
-        data-width="400"
-        data-theme="dark"
-      >
-        Tweets by ethereum
-      </a>
-      <a
-        class="twitter-timeline"
-        href="https://twitter.com/BBCAfrica?ref_src=twsrc%5Etfw"
-        data-height="400"
-        data-width="400"
-        data-theme="dark"
-      >
-        Tweets by BBCAfrica
-      </a>
+      {profiles.map((profile) => {
+        return (
+          <>
+            <TwitterTimelineEmbed
+              sourceType="profile"
+              screenName={profile}
+              options={{ height: 400, width: 400 }}
+            />
+          </>
+        );
+      })}
     </section>
   );
 };
