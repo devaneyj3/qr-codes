@@ -5,6 +5,9 @@ import "./prices.scss";
 
 const About = () => {
   const [cryptos, setCryptos] = useState([]);
+  const refresh = () => {
+    window.location.reload();
+  };
   useEffect(() => {
     const getData = async () => {
       const data = await axios.get(
@@ -15,33 +18,22 @@ const About = () => {
     getData();
   }, []);
   return (
-    <div className="bitcoin-info-container">
-      {Object.keys(cryptos).map((key) => {
-        let price = cryptos[key].USD.PRICE;
-        let image = cryptos[key].USD.IMAGEURL;
-        const customImg = {
-          src: image,
-        };
-        console.log(customImg);
-        price = "$" + String(price.toFixed(3));
-        return (
-          <section className={key} key={key}>
-            <h2>{key} Price</h2>
-            <QRCode
-              value={price}
-              size={70}
-              style={{ src: customImg.src }}
-              imageSettings={{
-                src: "https://static.zpao.com/favicon.png",
-                height: 24,
-                width: 24,
-              }}
-            />
-            <p>Price: {price}</p>
-          </section>
-        );
-      })}
-    </div>
+    <>
+      <p>Scan QR code to get the price.</p>
+      <button onClick={refresh}>Refresh Price</button>
+      <div className="bitcoin-info-container">
+        {Object.keys(cryptos).map((key) => {
+          let price = cryptos[key].USD.PRICE;
+          price = "$" + String(price.toFixed(3));
+          return (
+            <section className={key} key={key}>
+              <h2>{key} Price</h2>
+              <QRCode value={price} size={70} />
+            </section>
+          );
+        })}
+      </div>
+    </>
   );
 };
 

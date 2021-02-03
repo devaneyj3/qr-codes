@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./index.scss";
+import moment from "moment";
 import { HashRouter as Router, Route } from "react-router-dom";
 import Navigation from "./components/navigation/navigation";
 import ReactToPdf from "react-to-pdf";
@@ -17,7 +18,7 @@ const Container = () => {
         <div className="container" ref={ref}>
           <Navigation />
           <section className="header">
-            <p>Scan the QRcode on the page to get cool information.</p>
+            <p>{moment().format("MMMM Do YYYY")}</p>
             <ReactToPdf targetRef={ref} filename="info.pdf">
               {({ toPdf }) => <button onClick={toPdf}>Capture as PDF</button>}
             </ReactToPdf>
